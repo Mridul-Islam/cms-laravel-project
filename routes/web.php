@@ -17,20 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/about', function () {
-    return "Hi about page";
-});
+Auth::routes();
 
-Route::get('/contact', function () {
-    return "Hi contact page";
-});
-
-Route::get('/post/{id}/{name}', function($id, $name){
-    return "Post number " . $id . " " . $name;
-});
-
-Route::get('admin/post/example',array('as'=>'admin.home', function(){
-    $url = route('admin.home');
-
-    return "This is " . $url;
-}));
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
