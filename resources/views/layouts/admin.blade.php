@@ -29,7 +29,7 @@
 
 </head>
 
-<body id="admin-page">
+<body id="admin-page" style="padding-top: 0px">
 
 <div id="wrapper">
 
@@ -119,11 +119,11 @@
                         <a href="#"><i class="fa fa-wrench fa-fw"></i>Users<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="/users">All Users</a>
+                                <a href="/admin/users">All Users</a>
                             </li>
 
                             <li>
-                                <a href="/users/create">Create User</a>
+                                <a href="/admin/users/create">Create User</a>
                             </li>
 
                         </ul>
@@ -138,7 +138,7 @@
                             </li>
 
                             <li>
-                                <a href="/posts/create">Create Post</a>
+                                <a href="/admin/posts/create">Create Post</a>
                             </li>
 
                         </ul>

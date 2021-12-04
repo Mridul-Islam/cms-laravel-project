@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 30, 2021 at 09:58 AM
+-- Generation Time: Dec 04, 2021 at 06:30 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -103,6 +103,15 @@ CREATE TABLE `roles` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `roles`
+--
+
+INSERT INTO `roles` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'Administrator', '2021-12-02 06:58:20', '2021-12-02 06:58:20'),
+(2, 'Subscriber', '2021-12-02 06:58:39', '2021-12-02 06:58:39'),
+(3, 'Author', '2021-12-02 06:58:48', '2021-12-02 06:58:48');
+
 -- --------------------------------------------------------
 
 --
@@ -121,6 +130,20 @@ CREATE TABLE `users` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `is_active`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Mridul Islam', 'md.mridulislam12345@gmail.com', 1, NULL, '$2y$10$uHyOeFiq/lwnQSJbHofjZeL3Ti4/xjUyQynYjWuyeWOBO194krt5e', NULL, '2021-12-01 06:11:01', '2021-12-01 06:11:01'),
+(2, 2, 'Shamim Hossain', 'shamimMridha@gmail.com', 0, NULL, '$2y$10$fFz3IFSICfE.GMn0.d2l6.8igT.F6j1GEYws8NgO5WF/nEJpdRsW2', NULL, '2021-12-01 13:00:19', '2021-12-01 13:00:19'),
+(3, 3, 'Hatem Ali', 'Hatem@gmail.com', 0, NULL, '123456789', NULL, '2021-12-02 23:01:01', '2021-12-02 23:01:01'),
+(4, 2, 'Azizul Haq', 'Aziz@gmail.com', 0, NULL, '123456789', NULL, '2021-12-02 23:04:25', '2021-12-02 23:04:25'),
+(5, 3, 'Mahadi Hasan', 'Mahadi@gmail.com', 0, NULL, '123456789', NULL, '2021-12-02 23:05:13', '2021-12-02 23:05:13'),
+(6, 2, 'Showrab', 'Showrab@gmail.com', 0, NULL, '123456789', NULL, '2021-12-02 23:07:06', '2021-12-02 23:07:06'),
+(7, 2, 'Arfan Uddin', 'Arfan@gmail.com', 0, NULL, '123456789', NULL, '2021-12-02 23:08:38', '2021-12-02 23:08:38'),
+(8, 2, 'Shanto', 'Shanto@gmail.com', 0, NULL, '123456789', NULL, '2021-12-03 03:48:08', '2021-12-03 03:48:08');
 
 --
 -- Indexes for dumped tables
@@ -193,13 +216,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
