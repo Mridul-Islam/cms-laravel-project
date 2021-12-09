@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 04, 2021 at 06:30 PM
+-- Generation Time: Dec 06, 2021 at 05:19 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -54,11 +54,13 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(1, '2014_10_12_000000_create_users_table', 1),
-(2, '2014_10_12_100000_create_password_resets_table', 1),
-(3, '2019_08_19_000000_create_failed_jobs_table', 1),
-(4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(5, '2021_11_25_115818_create_roles_table', 1);
+(7, '2014_10_12_000000_create_users_table', 1),
+(8, '2014_10_12_100000_create_password_resets_table', 1),
+(9, '2019_08_19_000000_create_failed_jobs_table', 1),
+(10, '2019_12_14_000001_create_personal_access_tokens_table', 1),
+(11, '2021_11_25_115818_create_roles_table', 1),
+(12, '2021_12_06_130419_add_photo_id_to_users', 1),
+(13, '2021_12_06_160145_create_photos_table', 2);
 
 -- --------------------------------------------------------
 
@@ -93,6 +95,19 @@ CREATE TABLE `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `photos`
+--
+
+CREATE TABLE `photos` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `roles`
 --
 
@@ -108,9 +123,9 @@ CREATE TABLE `roles` (
 --
 
 INSERT INTO `roles` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'Administrator', '2021-12-02 06:58:20', '2021-12-02 06:58:20'),
-(2, 'Subscriber', '2021-12-02 06:58:39', '2021-12-02 06:58:39'),
-(3, 'Author', '2021-12-02 06:58:48', '2021-12-02 06:58:48');
+(1, 'Administrator', '2021-12-06 09:42:38', '2021-12-06 09:42:38'),
+(2, 'Author', '2021-12-06 09:42:55', '2021-12-06 09:42:55'),
+(3, 'Subscriber', '2021-12-06 09:43:04', '2021-12-06 09:43:04');
 
 -- --------------------------------------------------------
 
@@ -128,22 +143,17 @@ CREATE TABLE `users` (
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `photo_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `is_active`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Mridul Islam', 'md.mridulislam12345@gmail.com', 1, NULL, '$2y$10$uHyOeFiq/lwnQSJbHofjZeL3Ti4/xjUyQynYjWuyeWOBO194krt5e', NULL, '2021-12-01 06:11:01', '2021-12-01 06:11:01'),
-(2, 2, 'Shamim Hossain', 'shamimMridha@gmail.com', 0, NULL, '$2y$10$fFz3IFSICfE.GMn0.d2l6.8igT.F6j1GEYws8NgO5WF/nEJpdRsW2', NULL, '2021-12-01 13:00:19', '2021-12-01 13:00:19'),
-(3, 3, 'Hatem Ali', 'Hatem@gmail.com', 0, NULL, '123456789', NULL, '2021-12-02 23:01:01', '2021-12-02 23:01:01'),
-(4, 2, 'Azizul Haq', 'Aziz@gmail.com', 0, NULL, '123456789', NULL, '2021-12-02 23:04:25', '2021-12-02 23:04:25'),
-(5, 3, 'Mahadi Hasan', 'Mahadi@gmail.com', 0, NULL, '123456789', NULL, '2021-12-02 23:05:13', '2021-12-02 23:05:13'),
-(6, 2, 'Showrab', 'Showrab@gmail.com', 0, NULL, '123456789', NULL, '2021-12-02 23:07:06', '2021-12-02 23:07:06'),
-(7, 2, 'Arfan Uddin', 'Arfan@gmail.com', 0, NULL, '123456789', NULL, '2021-12-02 23:08:38', '2021-12-02 23:08:38'),
-(8, 2, 'Shanto', 'Shanto@gmail.com', 0, NULL, '123456789', NULL, '2021-12-03 03:48:08', '2021-12-03 03:48:08');
+INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `is_active`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `photo_id`) VALUES
+(1, 1, 'Mridul Islam', 'md.mridulislam12345@gmail.com', 1, NULL, '$2y$10$24.j67iT6NcmIb6GAWpyYumeLCng.ukNUJriVPEduEWDbsMA6zLqG', NULL, '2021-12-06 09:43:58', '2021-12-06 09:43:58', NULL),
+(2, 2, 'Shakil Ahmed', 'Shakil@gmail.com', 0, NULL, '123456789', NULL, '2021-12-06 09:47:19', '2021-12-06 09:47:19', NULL);
 
 --
 -- Indexes for dumped tables
@@ -177,6 +187,12 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
+-- Indexes for table `photos`
+--
+ALTER TABLE `photos`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `roles`
 --
 ALTER TABLE `roles`
@@ -204,12 +220,18 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `photos`
+--
+ALTER TABLE `photos`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
@@ -222,7 +244,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
