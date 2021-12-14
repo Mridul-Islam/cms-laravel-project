@@ -26,7 +26,7 @@
                         <td>{{$post->user->name}}</td>
                         <td>{{$post->category ? $post->category->name : 'Un-Categorised'}}</td>
                         <td><a href="{{route('posts.edit', $post->id)}}">{{$post->title}}</a></td>
-                        <td>{{$post->body}}</td>
+                        <td>{{Str::limit($post->body, 20)}}</td>
                         <td>{{$post->created_at->diffForHumans()}}</td>
                         <td>{{$post->updated_at->diffForHumans()}}</td>
                     </tr>
