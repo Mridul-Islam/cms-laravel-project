@@ -22,10 +22,10 @@
                 @foreach($posts as $post)
                     <tr>
                         <td>{{$post->id}}</td>
-                        <td><img height="80px" src="{{$post->photo? $post->photo->image: "/images/user-logo.jpg"}}" /></td>
+                        <td><img height="80px" width="140px" src="{{$post->photo? $post->photo->image: "/images/user-logo.jpg"}}" /></td>
                         <td>{{$post->user->name}}</td>
-                        <td>{{$post->category_id}}</td>
-                        <td>{{$post->title}}</td>
+                        <td>{{$post->category ? $post->category->name : 'Un-Categorised'}}</td>
+                        <td><a href="{{route('posts.edit', $post->id)}}">{{$post->title}}</a></td>
                         <td>{{$post->body}}</td>
                         <td>{{$post->created_at->diffForHumans()}}</td>
                         <td>{{$post->updated_at->diffForHumans()}}</td>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 13, 2021 at 05:14 PM
+-- Generation Time: Dec 14, 2021 at 05:34 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -20,6 +20,28 @@ SET time_zone = "+00:00";
 --
 -- Database: `my_laravel_db`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `categories`
+--
+
+CREATE TABLE `categories` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'PHP', '2021-12-13 22:11:34', '2021-12-13 22:11:34'),
+(2, 'JavaScript', '2021-12-13 22:11:44', '2021-12-13 22:11:44'),
+(3, 'Laravel', '2021-12-13 22:12:19', '2021-12-13 22:12:19');
 
 -- --------------------------------------------------------
 
@@ -61,7 +83,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (11, '2021_11_25_115818_create_roles_table', 1),
 (12, '2021_12_06_130419_add_photo_id_to_users', 1),
 (13, '2021_12_06_160145_create_photos_table', 2),
-(14, '2021_12_13_090728_create_posts_table', 3);
+(14, '2021_12_13_090728_create_posts_table', 3),
+(15, '2021_12_14_040747_create_categories_table', 4);
 
 -- --------------------------------------------------------
 
@@ -112,8 +135,11 @@ CREATE TABLE `photos` (
 
 INSERT INTO `photos` (`id`, `image`, `created_at`, `updated_at`) VALUES
 (20, '1639223999IMG_1828.JPG', '2021-12-11 05:59:59', '2021-12-11 05:59:59'),
-(22, '1639224982IMG_0332.JPG', '2021-12-11 06:16:22', '2021-12-11 06:16:22'),
-(23, '1639225024IMG_0332.JPG', '2021-12-11 06:17:04', '2021-12-11 06:17:04');
+(23, '1639225024IMG_0332.JPG', '2021-12-11 06:17:04', '2021-12-11 06:17:04'),
+(26, '1639452418vue.js-logo.png', '2021-12-13 21:26:58', '2021-12-13 21:26:58'),
+(27, '1639452523react_logo.png', '2021-12-13 21:28:43', '2021-12-13 21:28:43'),
+(28, '1639453476codeigniter-1.svg', '2021-12-13 21:44:36', '2021-12-13 21:44:36'),
+(29, '1639456215AngularJS_logo.svg.png', '2021-12-13 22:30:15', '2021-12-13 22:30:15');
 
 -- --------------------------------------------------------
 
@@ -137,7 +163,11 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `user_id`, `category_id`, `photo_id`, `title`, `body`, `created_at`, `updated_at`) VALUES
-(1, 12, 1, 20, 'Laravel Course', 'Laravel is one of the finest framework in the world', '2021-12-13 03:16:52', '2021-12-13 03:16:52');
+(1, 12, 1, 20, 'Laravel Course', 'Laravel is one of the finest framework in the world', '2021-12-13 03:16:52', '2021-12-13 03:16:52'),
+(2, 12, 1, 26, 'Vue js', 'This is very good frond end framework..', '2021-12-13 21:26:58', '2021-12-13 21:26:58'),
+(3, 11, 2, 27, 'React js', 'React is a javaScript front end framework..', '2021-12-13 21:28:43', '2021-12-13 21:28:43'),
+(4, 11, 1, 28, 'CodeIgnitor', 'This is a good PHP Framework..', '2021-12-13 21:44:36', '2021-12-13 21:44:36'),
+(5, 12, 2, 29, 'Angular js', 'This is the coolest framework..', '2021-12-13 22:30:15', '2021-12-13 22:30:15');
 
 -- --------------------------------------------------------
 
@@ -186,12 +216,18 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `is_active`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `photo_id`) VALUES
-(11, 2, 'Shad', 'shad@gmail.com', 1, NULL, '$2y$10$EHl/NrXVH2IMQ9seWyK/re1A8K/8l6EXG32edApvWea3uP17YuVNy', NULL, '2021-12-11 05:59:59', '2021-12-11 06:09:58', '20'),
+(11, 1, 'Shad', 'shad@gmail.com', 1, NULL, '$2y$10$EHl/NrXVH2IMQ9seWyK/re1A8K/8l6EXG32edApvWea3uP17YuVNy', NULL, '2021-12-11 05:59:59', '2021-12-13 21:27:40', '20'),
 (12, 1, 'Mridul Islam', 'md.mridulislam12345@gmail.com', 1, NULL, '$2y$10$fYKUoLqKWPW24HqTfgptE.FQ/aUwGNOfAFjOvE3DWtv0lby6W6k/i', NULL, '2021-12-11 06:12:10', '2021-12-11 06:17:04', '23');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `failed_jobs`
@@ -254,6 +290,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -263,7 +305,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -275,13 +317,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `photos`
 --
 ALTER TABLE `photos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `roles`
