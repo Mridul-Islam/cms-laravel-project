@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 15, 2021 at 11:18 AM
+-- Generation Time: Dec 15, 2021 at 05:28 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -40,7 +40,7 @@ CREATE TABLE `categories` (
 
 INSERT INTO `categories` (`id`, `name`, `created_at`, `updated_at`) VALUES
 (1, 'PHP', '2021-12-15 02:32:56', '2021-12-15 02:32:56'),
-(2, 'JavaScript', '2021-12-15 02:33:05', '2021-12-15 02:33:05');
+(2, 'JavaScript', '2021-12-15 02:33:05', '2021-12-15 10:24:45');
 
 -- --------------------------------------------------------
 
@@ -134,7 +134,9 @@ CREATE TABLE `photos` (
 
 INSERT INTO `photos` (`id`, `image`, `created_at`, `updated_at`) VALUES
 (7, '1639557751download.png', '2021-12-15 02:42:31', '2021-12-15 02:42:31'),
-(13, '1639561671blue audi.jpg', '2021-12-15 03:47:51', '2021-12-15 03:47:51');
+(13, '1639561671blue audi.jpg', '2021-12-15 03:47:51', '2021-12-15 03:47:51'),
+(14, '1639580921IMG_0332.JPG', '2021-12-15 09:08:41', '2021-12-15 09:08:41'),
+(15, '1639580921IMG_0332.JPG', '2021-12-15 09:08:41', '2021-12-15 09:08:41');
 
 -- --------------------------------------------------------
 
@@ -207,7 +209,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `is_active`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `photo_id`) VALUES
-(1, 1, 'Mridul Islam', 'md.mridulislam12345@gmail.com', 1, NULL, '$2y$10$FQifGn/Sdf/agrQmzRIVKuuDrT68.LLtnRgedZLhslyBmJTQFMN52', NULL, '2021-12-15 02:30:43', '2021-12-15 02:30:43', NULL);
+(1, 1, 'Mridul Islam', 'md.mridulislam12345@gmail.com', 1, NULL, '$2y$10$FQifGn/Sdf/agrQmzRIVKuuDrT68.LLtnRgedZLhslyBmJTQFMN52', NULL, '2021-12-15 02:30:43', '2021-12-15 09:08:41', '15');
 
 --
 -- Indexes for dumped tables
@@ -283,7 +285,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -307,7 +309,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `photos`
 --
 ALTER TABLE `photos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `posts`

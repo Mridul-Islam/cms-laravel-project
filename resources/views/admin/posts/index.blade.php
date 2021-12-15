@@ -21,7 +21,7 @@
                 <th>Image</th>
                 <th>User</th>
                 <th>Category</th>
-                <th>title</th>
+                <th>Title</th>
                 <th>Body</th>
                 <th>Created at</th>
                 <th>Updated at</th>
