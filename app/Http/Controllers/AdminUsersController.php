@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UserEditRequest;
 use App\Http\Requests\UserRequest;
 use App\Models\Photo;
+use App\Models\Post;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -91,8 +92,12 @@ class AdminUsersController extends Controller
     public function destroy($id)
     {
         $user = User::findOrFail($id);
-        unlink(public_path() . $user->photo->image);
-        Photo::findOrFail($user->photo->id)->delete();
+        if($user->photo->image){
+            unlink(public_path() . $user->photo->image);
+            Photo::findOrFail($user->photo->id)->delete();
+        }
+
+        $user->posts()->delete();
 
         $user->delete();
 

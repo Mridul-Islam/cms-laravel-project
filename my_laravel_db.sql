@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 14, 2021 at 05:34 AM
+-- Generation Time: Dec 15, 2021 at 11:18 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -39,9 +39,8 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'PHP', '2021-12-13 22:11:34', '2021-12-13 22:11:34'),
-(2, 'JavaScript', '2021-12-13 22:11:44', '2021-12-13 22:11:44'),
-(3, 'Laravel', '2021-12-13 22:12:19', '2021-12-13 22:12:19');
+(1, 'PHP', '2021-12-15 02:32:56', '2021-12-15 02:32:56'),
+(2, 'JavaScript', '2021-12-15 02:33:05', '2021-12-15 02:33:05');
 
 -- --------------------------------------------------------
 
@@ -76,15 +75,15 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(7, '2014_10_12_000000_create_users_table', 1),
-(8, '2014_10_12_100000_create_password_resets_table', 1),
-(9, '2019_08_19_000000_create_failed_jobs_table', 1),
-(10, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(11, '2021_11_25_115818_create_roles_table', 1),
-(12, '2021_12_06_130419_add_photo_id_to_users', 1),
-(13, '2021_12_06_160145_create_photos_table', 2),
-(14, '2021_12_13_090728_create_posts_table', 3),
-(15, '2021_12_14_040747_create_categories_table', 4);
+(76, '2014_10_12_000000_create_users_table', 1),
+(77, '2014_10_12_100000_create_password_resets_table', 1),
+(78, '2019_08_19_000000_create_failed_jobs_table', 1),
+(79, '2019_12_14_000001_create_personal_access_tokens_table', 1),
+(80, '2021_11_25_115818_create_roles_table', 1),
+(81, '2021_12_06_130419_add_photo_id_to_users', 1),
+(82, '2021_12_06_160145_create_photos_table', 1),
+(83, '2021_12_13_090728_create_posts_table', 1),
+(84, '2021_12_14_040747_create_categories_table', 1);
 
 -- --------------------------------------------------------
 
@@ -134,12 +133,8 @@ CREATE TABLE `photos` (
 --
 
 INSERT INTO `photos` (`id`, `image`, `created_at`, `updated_at`) VALUES
-(20, '1639223999IMG_1828.JPG', '2021-12-11 05:59:59', '2021-12-11 05:59:59'),
-(23, '1639225024IMG_0332.JPG', '2021-12-11 06:17:04', '2021-12-11 06:17:04'),
-(26, '1639452418vue.js-logo.png', '2021-12-13 21:26:58', '2021-12-13 21:26:58'),
-(27, '1639452523react_logo.png', '2021-12-13 21:28:43', '2021-12-13 21:28:43'),
-(28, '1639453476codeigniter-1.svg', '2021-12-13 21:44:36', '2021-12-13 21:44:36'),
-(29, '1639456215AngularJS_logo.svg.png', '2021-12-13 22:30:15', '2021-12-13 22:30:15');
+(7, '1639557751download.png', '2021-12-15 02:42:31', '2021-12-15 02:42:31'),
+(13, '1639561671blue audi.jpg', '2021-12-15 03:47:51', '2021-12-15 03:47:51');
 
 -- --------------------------------------------------------
 
@@ -163,11 +158,7 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `user_id`, `category_id`, `photo_id`, `title`, `body`, `created_at`, `updated_at`) VALUES
-(1, 12, 1, 20, 'Laravel Course', 'Laravel is one of the finest framework in the world', '2021-12-13 03:16:52', '2021-12-13 03:16:52'),
-(2, 12, 1, 26, 'Vue js', 'This is very good frond end framework..', '2021-12-13 21:26:58', '2021-12-13 21:26:58'),
-(3, 11, 2, 27, 'React js', 'React is a javaScript front end framework..', '2021-12-13 21:28:43', '2021-12-13 21:28:43'),
-(4, 11, 1, 28, 'CodeIgnitor', 'This is a good PHP Framework..', '2021-12-13 21:44:36', '2021-12-13 21:44:36'),
-(5, 12, 2, 29, 'Angular js', 'This is the coolest framework..', '2021-12-13 22:30:15', '2021-12-13 22:30:15');
+(5, 1, 1, 13, 'Smart home web application', 'This smart home web application is made by PHP-Laravel.....', '2021-12-15 03:47:51', '2021-12-15 03:47:51');
 
 -- --------------------------------------------------------
 
@@ -187,9 +178,9 @@ CREATE TABLE `roles` (
 --
 
 INSERT INTO `roles` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'Administrator', '2021-12-06 09:42:38', '2021-12-06 09:42:38'),
-(2, 'Author', '2021-12-06 09:42:55', '2021-12-06 09:42:55'),
-(3, 'Subscriber', '2021-12-06 09:43:04', '2021-12-06 09:43:04');
+(1, 'Administrator', '2021-12-15 02:29:01', '2021-12-15 02:29:01'),
+(2, 'Author', '2021-12-15 02:29:10', '2021-12-15 02:29:10'),
+(3, 'Subscriber', '2021-12-15 02:29:21', '2021-12-15 02:29:21');
 
 -- --------------------------------------------------------
 
@@ -216,8 +207,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `is_active`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `photo_id`) VALUES
-(11, 1, 'Shad', 'shad@gmail.com', 1, NULL, '$2y$10$EHl/NrXVH2IMQ9seWyK/re1A8K/8l6EXG32edApvWea3uP17YuVNy', NULL, '2021-12-11 05:59:59', '2021-12-13 21:27:40', '20'),
-(12, 1, 'Mridul Islam', 'md.mridulislam12345@gmail.com', 1, NULL, '$2y$10$fYKUoLqKWPW24HqTfgptE.FQ/aUwGNOfAFjOvE3DWtv0lby6W6k/i', NULL, '2021-12-11 06:12:10', '2021-12-11 06:17:04', '23');
+(1, 1, 'Mridul Islam', 'md.mridulislam12345@gmail.com', 1, NULL, '$2y$10$FQifGn/Sdf/agrQmzRIVKuuDrT68.LLtnRgedZLhslyBmJTQFMN52', NULL, '2021-12-15 02:30:43', '2021-12-15 02:30:43', NULL);
 
 --
 -- Indexes for dumped tables
@@ -293,7 +283,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -305,7 +295,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -317,7 +307,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `photos`
 --
 ALTER TABLE `photos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `posts`
@@ -335,7 +325,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
