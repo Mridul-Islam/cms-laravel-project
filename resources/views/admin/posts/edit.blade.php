@@ -4,7 +4,7 @@
     <h1 class="text-center">Edit Post</h1>
     <div class="row">
         <div class="col-sm-4">
-            <img class="img-responsive img-thumbnail img-rounded" src="{{$post->photo ? $post->photo->image : "/images/user-logo.jpg"}}" />
+            <img class="img-responsive img-thumbnail img-rounded" src="{{$post->photo ? $post->photo->image : "/images/post.jpg"}}" />
         </div>
         <div class="col-sm-8">
             {!! Form::model($post, ['method'=>'PATCH', 'route'=>['posts.update', $post->id], 'files'=>true]) !!}
