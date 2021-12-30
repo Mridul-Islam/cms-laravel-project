@@ -54,6 +54,10 @@ Route::group(['middleware'=>'admin'], function (){
 
 });
 
+Route::group(['middleware'=>'auth'], function (){
+    Route::post('/comments/reply', [CommentRepliesController::class, 'createReply'])->name('comments.reply');
+});
+
 
 
 

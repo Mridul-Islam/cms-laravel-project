@@ -9,7 +9,7 @@ class CommentReply extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['comment_id', 'is_active', 'author', 'email', 'body'];
+    protected $fillable = ['comment_id', 'is_active', 'author', 'email', 'body', 'photo'];
 
     public function comment(){
         return $this->belongsTo('App\Models\Comment');
