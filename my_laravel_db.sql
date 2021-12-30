@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 15, 2021 at 05:28 PM
+-- Generation Time: Dec 21, 2021 at 06:22 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -39,8 +39,51 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'PHP', '2021-12-15 02:32:56', '2021-12-15 02:32:56'),
-(2, 'JavaScript', '2021-12-15 02:33:05', '2021-12-15 10:24:45');
+(1, 'PHP', '2021-12-20 23:16:07', '2021-12-20 23:16:07'),
+(2, 'JavaScript', '2021-12-20 23:16:13', '2021-12-20 23:16:13');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comments`
+--
+
+CREATE TABLE `comments` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `post_id` int(10) UNSIGNED NOT NULL,
+  `is_active` int(11) NOT NULL DEFAULT 0,
+  `author` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `photo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `body` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`id`, `post_id`, `is_active`, `author`, `email`, `photo`, `body`, `created_at`, `updated_at`) VALUES
+(1, 1, 0, 'Mridul Islam', 'md.mridulislam12345@gmail.com', NULL, 'This is my first comment.....', '2021-12-20 23:22:11', '2021-12-20 23:22:11');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comment_replies`
+--
+
+CREATE TABLE `comment_replies` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `comment_id` int(10) UNSIGNED NOT NULL,
+  `is_active` int(11) NOT NULL DEFAULT 0,
+  `author` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `photo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `body` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -75,15 +118,17 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(76, '2014_10_12_000000_create_users_table', 1),
-(77, '2014_10_12_100000_create_password_resets_table', 1),
-(78, '2019_08_19_000000_create_failed_jobs_table', 1),
-(79, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(80, '2021_11_25_115818_create_roles_table', 1),
-(81, '2021_12_06_130419_add_photo_id_to_users', 1),
-(82, '2021_12_06_160145_create_photos_table', 1),
-(83, '2021_12_13_090728_create_posts_table', 1),
-(84, '2021_12_14_040747_create_categories_table', 1);
+(143, '2014_10_12_000000_create_users_table', 1),
+(144, '2014_10_12_100000_create_password_resets_table', 1),
+(145, '2019_08_19_000000_create_failed_jobs_table', 1),
+(146, '2019_12_14_000001_create_personal_access_tokens_table', 1),
+(147, '2021_11_25_115818_create_roles_table', 1),
+(148, '2021_12_06_130419_add_photo_id_to_users', 1),
+(149, '2021_12_06_160145_create_photos_table', 1),
+(150, '2021_12_13_090728_create_posts_table', 1),
+(151, '2021_12_14_040747_create_categories_table', 1),
+(152, '2021_12_19_165902_create_comments_table', 1),
+(153, '2021_12_19_170255_create_comment_replies_table', 1);
 
 -- --------------------------------------------------------
 
@@ -133,10 +178,8 @@ CREATE TABLE `photos` (
 --
 
 INSERT INTO `photos` (`id`, `image`, `created_at`, `updated_at`) VALUES
-(7, '1639557751download.png', '2021-12-15 02:42:31', '2021-12-15 02:42:31'),
-(13, '1639561671blue audi.jpg', '2021-12-15 03:47:51', '2021-12-15 03:47:51'),
-(14, '1639580921IMG_0332.JPG', '2021-12-15 09:08:41', '2021-12-15 09:08:41'),
-(15, '1639580921IMG_0332.JPG', '2021-12-15 09:08:41', '2021-12-15 09:08:41');
+(1, '1640063812white_audi.jpg', '2021-12-20 23:16:52', '2021-12-20 23:16:52'),
+(2, '1640063864php_logo.png', '2021-12-20 23:17:44', '2021-12-20 23:17:44');
 
 -- --------------------------------------------------------
 
@@ -160,7 +203,7 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `user_id`, `category_id`, `photo_id`, `title`, `body`, `created_at`, `updated_at`) VALUES
-(5, 1, 1, 13, 'Smart home web application', 'This smart home web application is made by PHP-Laravel.....', '2021-12-15 03:47:51', '2021-12-15 03:47:51');
+(1, 1, 1, 2, 'PHP Begginer course...', 'PHP is one of the finest language in the world....', '2021-12-20 23:17:44', '2021-12-20 23:17:44');
 
 -- --------------------------------------------------------
 
@@ -180,9 +223,9 @@ CREATE TABLE `roles` (
 --
 
 INSERT INTO `roles` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'Administrator', '2021-12-15 02:29:01', '2021-12-15 02:29:01'),
-(2, 'Author', '2021-12-15 02:29:10', '2021-12-15 02:29:10'),
-(3, 'Subscriber', '2021-12-15 02:29:21', '2021-12-15 02:29:21');
+(1, 'Administrator', '2021-12-20 23:15:33', '2021-12-20 23:15:33'),
+(2, 'Author', '2021-12-20 23:15:41', '2021-12-20 23:15:41'),
+(3, 'Subscriber', '2021-12-20 23:15:49', '2021-12-20 23:15:49');
 
 -- --------------------------------------------------------
 
@@ -209,7 +252,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `is_active`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `photo_id`) VALUES
-(1, 1, 'Mridul Islam', 'md.mridulislam12345@gmail.com', 1, NULL, '$2y$10$FQifGn/Sdf/agrQmzRIVKuuDrT68.LLtnRgedZLhslyBmJTQFMN52', NULL, '2021-12-15 02:30:43', '2021-12-15 09:08:41', '15');
+(1, 1, 'Mridul Islam', 'md.mridulislam12345@gmail.com', 1, NULL, '$2y$10$EPXk454..N7XN.p0oucp3.KQZWZHE1EpHGIm9lee4PUWp9n40r0Xm', NULL, '2021-12-20 23:14:19', '2021-12-20 23:16:52', '1');
 
 --
 -- Indexes for dumped tables
@@ -220,6 +263,20 @@ INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `is_active`, `email_verif
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `comments_post_id_index` (`post_id`);
+
+--
+-- Indexes for table `comment_replies`
+--
+ALTER TABLE `comment_replies`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `comment_replies_comment_id_index` (`comment_id`);
 
 --
 -- Indexes for table `failed_jobs`
@@ -285,7 +342,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `comment_replies`
+--
+ALTER TABLE `comment_replies`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -297,7 +366,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=154;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -309,13 +378,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `photos`
 --
 ALTER TABLE `photos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -327,7 +396,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

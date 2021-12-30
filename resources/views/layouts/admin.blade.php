@@ -116,7 +116,7 @@
                     </li>
 
                     <li>
-                        <a href="#"><i class="fa fa-wrench fa-fw"></i>Users<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-users fa-fw"></i>Users<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="{{route('users.index')}}">All Users</a>
@@ -131,7 +131,26 @@
                     </li>
 
                     <li>
-                        <a href="#"><i class="fa fa-wrench fa-fw"></i> Posts<span class="fa arrow"></span></a>
+                        <a href="{{route('comments.index')}}"><i class="fa fa-comments fa-fw"></i>Comments<span class=""></span></a>
+                    </li>
+
+                    <li>
+                        <a href="#"><i class="fa fa-clipboard fa-fw"></i>Categories<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="{{route('categories.index')}}">All Categories</a>
+                            </li>
+
+                            {{--                            <li>--}}
+                            {{--                                <a href="{{route('categories.create')}}">Create Category</a>--}}
+                            {{--                            </li>--}}
+
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+
+                    <li>
+                        <a href="#"><i class="fa fa-file-pdf-o fa-fw"></i> Posts<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="{{route('posts.index')}}">All Posts</a>
@@ -147,23 +166,7 @@
 
 
                     <li>
-                        <a href="#"><i class="fa fa-wrench fa-fw"></i>Categories<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="{{route('categories.index')}}">All Categories</a>
-                            </li>
-
-{{--                            <li>--}}
-{{--                                <a href="{{route('categories.create')}}">Create Category</a>--}}
-{{--                            </li>--}}
-
-                        </ul>
-                        <!-- /.nav-second-level -->
-                    </li>
-
-
-                    <li>
-                        <a href="#"><i class="fa fa-wrench fa-fw"></i>Media<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-photo fa-fw"></i>Media<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="{{route('media.index')}}">All Photos</a>

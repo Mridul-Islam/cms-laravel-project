@@ -18,7 +18,7 @@
     </div>
 
     <div class="col-sm-6 pull-right">
-        @if($categories)
+        @if(count($categories) > 0)
             <table class="table">
                 <thead>
                 <tr>
@@ -45,6 +45,8 @@
                 @endforeach
                 </tbody>
             </table>
+            @else
+                <h1 class="text-center">No Categories Available</h1>
         @endif
     </div>
 
