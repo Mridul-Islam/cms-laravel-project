@@ -101,7 +101,7 @@ class AdminPostsController extends Controller
     public function comments($id){
         $post = Post::findOrFail($id);
         $comments = $post->comments;
-        return view('admin.posts.show', compact('post', 'comments'));
+        return view('admin.comments.show', compact('post', 'comments'));
     }
 
 

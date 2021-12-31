@@ -24,7 +24,8 @@
                 <th>Created</th>
                 <th>Present Status</th>
                 <th>Change Status</th>
-                <th>View</th>
+                <th>View post</th>
+                <th>Comment Replies</th>
                 <th>Delete</th>
             </tr>
             </thead>
@@ -43,17 +44,18 @@
                         @if($comment->is_active == 1)
                             {!! Form::open(['method'=>'PATCH', 'route'=>['comments.update', $comment->id]]) !!}
                             <input type="hidden" name="is_active" value="0" />
-                            {!! Form::submit('Un-Approve', ['class'=>'btn btn-info']) !!}
+                            {!! Form::submit('Un-Approve', ['class'=>'btn btn-primary']) !!}
                             {!! Form::close() !!}
                         @else
                             {!! Form::open(['method'=>'PATCH', 'route'=>['comments.update', $comment->id]]) !!}
                             <input type="hidden" name="is_active" value="1" />
-                            {!! Form::submit('Approve', ['class'=>'btn btn-info']) !!}
+                            {!! Form::submit('Approve', ['class'=>'btn btn-primary']) !!}
                             {!! Form::close() !!}
                         @endif
 
                     </td>
-                    <td><a href="{{route('home.post', $comment->post->id)}}" class="btn btn-primary">View</a></td>
+                    <td><a href="{{route('home.post', $comment->post->id)}}" class="btn">View Post</a></td>
+                    <td><a href="{{route('replies.show', $comment->id)}}" class="btn">View Replies</a></td>
                     <td>
                         {!! Form::open(['method'=>'DELETE', 'route'=>['comments.destroy', $comment->id]]) !!}
                             {!! Form::submit('Delete', ['class'=>'btn btn-danger']) !!}

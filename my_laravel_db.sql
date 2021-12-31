@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 21, 2021 at 06:22 AM
+-- Generation Time: Dec 31, 2021 at 06:56 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -65,7 +65,12 @@ CREATE TABLE `comments` (
 --
 
 INSERT INTO `comments` (`id`, `post_id`, `is_active`, `author`, `email`, `photo`, `body`, `created_at`, `updated_at`) VALUES
-(1, 1, 0, 'Mridul Islam', 'md.mridulislam12345@gmail.com', NULL, 'This is my first comment.....', '2021-12-20 23:22:11', '2021-12-20 23:22:11');
+(3, 1, 1, 'Mridul Islam', 'md.mridulislam12345@gmail.com', NULL, 'This course is great.....', '2021-12-23 03:20:04', '2021-12-30 10:24:27'),
+(4, 1, 1, 'Mridul Islam', 'md.mridulislam12345@gmail.com', NULL, 'This is my comments for test something.', '2021-12-23 03:59:33', '2021-12-30 10:20:47'),
+(5, 3, 1, 'Mridul Islam', 'md.mridulislam12345@gmail.com', NULL, 'This is a test comment for Vue.js..', '2021-12-29 23:54:13', '2021-12-30 00:31:52'),
+(6, 3, 1, 'Mridul Islam', 'md.mridulislam12345@gmail.com', NULL, 'This is the second comment for this post.', '2021-12-30 04:49:32', '2021-12-30 04:55:38'),
+(7, 3, 1, 'Mridul Islam', 'md.mridulislam12345@gmail.com', NULL, 'This is the third comment for this post.', '2021-12-30 04:56:48', '2021-12-30 04:57:15'),
+(8, 3, 1, 'Mridul Islam', 'md.mridulislam12345@gmail.com', '/images/1640063812white_audi.jpg', 'This is the fourth comment for this post..', '2021-12-30 04:59:07', '2021-12-30 05:00:13');
 
 -- --------------------------------------------------------
 
@@ -84,6 +89,15 @@ CREATE TABLE `comment_replies` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `comment_replies`
+--
+
+INSERT INTO `comment_replies` (`id`, `comment_id`, `is_active`, `author`, `email`, `photo`, `body`, `created_at`, `updated_at`) VALUES
+(1, 5, 1, 'Mridul Islam', 'md.mridulislam12345@gmail.com', '/images/1640063812white_audi.jpg', 'This is the first reply for test comment in vue js.', '2021-12-30 06:16:54', '2021-12-30 23:31:33'),
+(2, 5, 1, 'Mridul Islam', 'md.mridulislam12345@gmail.com', '/images/1640063812white_audi.jpg', 'This is the second reply for vue js.', '2021-12-30 06:54:18', '2021-12-30 23:31:36'),
+(5, 8, 0, 'Mridul Islam', 'md.mridulislam12345@gmail.com', '/images/1640063812white_audi.jpg', 'This is the of fourth comment for vue js post...', '2021-12-30 10:10:35', '2021-12-30 10:10:35');
 
 -- --------------------------------------------------------
 
@@ -179,7 +193,8 @@ CREATE TABLE `photos` (
 
 INSERT INTO `photos` (`id`, `image`, `created_at`, `updated_at`) VALUES
 (1, '1640063812white_audi.jpg', '2021-12-20 23:16:52', '2021-12-20 23:16:52'),
-(2, '1640063864php_logo.png', '2021-12-20 23:17:44', '2021-12-20 23:17:44');
+(2, '1640063864php_logo.png', '2021-12-20 23:17:44', '2021-12-20 23:17:44'),
+(4, '1640843609vue.js-logo.png', '2021-12-29 23:53:29', '2021-12-29 23:53:29');
 
 -- --------------------------------------------------------
 
@@ -203,7 +218,8 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `user_id`, `category_id`, `photo_id`, `title`, `body`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 2, 'PHP Begginer course...', 'PHP is one of the finest language in the world....', '2021-12-20 23:17:44', '2021-12-20 23:17:44');
+(1, 1, 1, 2, 'PHP Begginer course...', 'PHP is one of the finest language in the world....', '2021-12-20 23:17:44', '2021-12-20 23:17:44'),
+(3, 1, 2, 4, 'This is a Vue.Js Course.', 'Vue.js is an awesome front-end framework.', '2021-12-29 23:53:29', '2021-12-29 23:53:29');
 
 -- --------------------------------------------------------
 
@@ -348,13 +364,13 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `comment_replies`
 --
 ALTER TABLE `comment_replies`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -378,13 +394,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `photos`
 --
 ALTER TABLE `photos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `roles`

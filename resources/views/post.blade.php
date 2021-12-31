@@ -63,7 +63,7 @@
     @if(count($comments) > 0)
         <!-- Comment -->
         @foreach($comments as $comment)
-            <div class="media">
+            <div class="media" style="margin-bottom: 70px; ">
                 <a class="pull-left" href="#">
                     <img width="80px" height="50px" class="media-object" src="{{$comment->photo}}" alt="">
                 </a>
@@ -74,7 +74,24 @@
                     {{$comment->body}}
                     <p style="margin-bottom: 30px"></p>
 
-                <!-- Nested Comment -->
+                    <!-- Comment Reply Form -->
+                    <div class="comment-reply-container">
+                        <button class="btn btn-primary pull-right toggle-reply">Reply</button>
+                        <div class="" style="display: none">
+                            {!! Form::open(['method'=>'POST', 'route'=>'comments.reply']) !!}
+                                <input type="hidden" name="comment_id" value="{{$comment->id}}" />
+                                <div class="form-group">
+                                    {!! Form::label('body', 'Description:') !!}
+                                    {!! Form::textarea('body', null, ['class'=>'form-control', 'rows'=>'1']) !!}
+                                </div>
+                                <div class="form-group">
+                                    {!! Form::submit('Submit', ['class'=>'btn btn-primary']) !!}
+                                </div>
+                            {!! Form::close() !!}
+                        </div>
+                    </div>
+
+                    <!-- Nested Comment -->
                     @if(count($comment->replies) > 0)
                         @foreach($comment->replies as $reply)
                         <div class="media">
@@ -91,18 +108,8 @@
                         @endforeach
                     @endif
 
-                    {!! Form::open(['method'=>'POST', 'route'=>'comments.reply']) !!}
-                    <input type="hidden" name="comment_id" value="{{$comment->id}}" />
-                    <div class="form-group">
-                        {!! Form::label('body', 'Reply:') !!}
-                        {!! Form::textarea('body', null, ['class'=>'form-control', 'rows'=>'1']) !!}
-                    </div>
-                    <div class="form-group">
-                        {!! Form::submit('Submit', ['class'=>'btn btn-primary']) !!}
-                    </div>
-                {!! Form::close() !!}
-
                     <!-- End Nested Comment -->
+
                 </div>
             </div>
         @endforeach
@@ -111,8 +118,16 @@
             <div class="media">
                 <h4 class="text-primary">Opps! No comments available.. Or .. Comments has not been approved yet..</h4>
             </div>
-
-
     @endif
+
+@stop
+
+
+@section('scripts')
+    <script>
+        $(".comment-reply-container .toggle-reply").click(function(){
+            $(this).next().slideToggle('first');
+        });
+    </script>
 
 @stop

@@ -28,7 +28,7 @@
                 <th>Created</th>
                 <th>Updated</th>
                 <th>Comments</th>
-                <th>View</th>
+                <th>View Post</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
@@ -46,9 +46,9 @@
                         <td>{{Str::limit($post->body, 20)}}</td>
                         <td>{{$post->created_at->diffForHumans()}}</td>
                         <td>{{$post->updated_at->diffForHumans()}}</td>
-                        <td><a class="btn btn-primary" href="{{route('post.comments', $post->id)}}">comments</a></td>
-                        <td><a class="btn btn-info" href="{{route('home.post', $post->id)}}">View</a></td>
-                        <td><a class="btn btn-primary" href="{{route('posts.edit', $post->id)}}">Edit</a></td>
+                        <td><a class="btn" href="{{route('post.comments', $post->id)}}">Comments</a></td>
+                        <td><a class="btn" href="{{route('home.post', $post->id)}}">View Post</a></td>
+                        <td><a class="btn" href="{{route('posts.edit', $post->id)}}">Edit</a></td>
                         <td>
                             {!! Form::open(['method'=>'DELETE', 'route'=>['posts.destroy', $post->id]]) !!}
                                 {!! Form::submit('Delete', ['class'=>'btn btn-danger']) !!}
