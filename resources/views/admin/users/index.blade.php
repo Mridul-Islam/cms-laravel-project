@@ -45,6 +45,13 @@
             @endforeach
             </tbody>
         </table>
+
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-5">
+                {{$users->links()}}
+            </div>
+        </div>
+
         @else
             <h1 class="text-center text-info bg-info"> No Users Available</h1>
     @endif
