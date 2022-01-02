@@ -84,16 +84,17 @@ class AdminPostsController extends Controller
     {
         $post = Post::findOrFail($id);
 
+        $post->comments()->delete();
         unlink(public_path() . $post->photo->image);
         Photo::findOrFail($post->photo->id)->delete();
-
         $post->delete();
         Session::flash('deleted_post', 'The post has been deleted');
         return redirect('admin/posts');
     }
 
-    public function post($id){
-        $post = Post::findOrFail($id);
+    public function post($slug){
+        $post = Post::findBySlugOrFail($slug);
+        //$post = Post::findOrFail($id);
         $comments = $post->comments()->whereIsActive(1)->get();
         return view('post', compact('post', 'comments'));
     }

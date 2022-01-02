@@ -92,12 +92,12 @@ class AdminUsersController extends Controller
     public function destroy($id)
     {
         $user = User::findOrFail($id);
+
+        $user->posts()->delete();
         if($user->photo->image){
             unlink(public_path() . $user->photo->image);
             Photo::findOrFail($user->photo->id)->delete();
         }
-
-        $user->posts()->delete();
 
         $user->delete();
 

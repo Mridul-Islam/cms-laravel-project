@@ -37,9 +37,11 @@ Route::group(['middleware'=>'admin'], function (){
 
     Route::get('/admin', function (){
         return view('admin.index');
-    });
+    })->name('admin.index');
 
-    Route::resource('/admin/users', AdminUsersController::class);
+    Route::resource('/admin/users', AdminUsersController::class , ['names'=>[
+        'index' => 'admin.users.index'
+    ]]);
 
     Route::resource('/admin/posts', AdminPostsController::class);
     Route::get('/admin/post/{id}/comments', [AdminPostsController::class, 'comments'])->name('post.comments');

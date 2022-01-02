@@ -24,7 +24,8 @@
                 <th>Created</th>
                 <th>Present Status</th>
                 <th>Change Status</th>
-                <th>View</th>
+                <th>View Post</th>
+                <th>Comment Replies</th>
                 <th>Delete</th>
             </tr>
             </thead>
@@ -53,7 +54,8 @@
                         @endif
 
                     </td>
-                    <td><a href="{{route('home.post', $comment->post->id)}}" class="btn btn-primary">View</a></td>
+                    <td><a href="{{route('home.post', $comment->post->slug)}}" class="btn btn-primary">View Post</a></td>
+                    <td><a href="{{route('replies.show', $comment->id)}}" class="btn">View Replies</a></td>
                     <td>
                         {!! Form::open(['method'=>'DELETE', 'route'=>['comments.destroy', $comment->id]]) !!}
                         {!! Form::submit('Delete', ['class'=>'btn btn-danger']) !!}

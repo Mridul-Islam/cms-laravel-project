@@ -18,10 +18,11 @@
             <tr>
                 <th>Id</th>
                 {{--                <th>Commentor Image</th>--}}
+                <th>Post Id</th>
                 <th>Author</th>
                 <th>Email</th>
-                <th>Comment</th>
-                <th>Created</th>
+{{--                <th>Comment</th>--}}
+{{--                <th>Created</th>--}}
                 <th>Present Status</th>
                 <th>Change Status</th>
                 <th>View post</th>
@@ -33,12 +34,12 @@
             @foreach($comments as $comment)
                 <tr>
                     <td>{{$comment->id}}</td>
-                    {{--                    <td>{{$comment->photo ? $comment->photo : ""}}</td>--}}
+                    <td>{{$comment->post->id}}</td>
+{{--                                        <td>{{$comment->photo ? $comment->photo : ""}}</td>--}}
                     <td>{{$comment->author}}</td>
                     <td>{{$comment->email}}</td>
-                    <td>{{Str::limit($comment->body, 20)}}</td>
-
-                    <td>{{$comment->created_at->diffForHumans()}}</td>
+{{--                    <td>{{Str::limit($comment->body, 20)}}</td>--}}
+{{--                    <td>{{$comment->created_at->diffForHumans()}}</td>--}}
                     <td>{{$comment->is_active == 1 ? 'Approved' : "Un-Approved"}}</td>
                     <td>
                         @if($comment->is_active == 1)
@@ -54,7 +55,7 @@
                         @endif
 
                     </td>
-                    <td><a href="{{route('home.post', $comment->post->id)}}" class="btn">View Post</a></td>
+                    <td><a href="{{route('home.post', $comment->post->slug)}}" class="btn">View Post</a></td>
                     <td><a href="{{route('replies.show', $comment->id)}}" class="btn">View Replies</a></td>
                     <td>
                         {!! Form::open(['method'=>'DELETE', 'route'=>['comments.destroy', $comment->id]]) !!}

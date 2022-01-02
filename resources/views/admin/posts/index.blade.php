@@ -47,7 +47,7 @@
                         <td>{{$post->created_at->diffForHumans()}}</td>
                         <td>{{$post->updated_at->diffForHumans()}}</td>
                         <td><a class="btn" href="{{route('post.comments', $post->id)}}">Comments</a></td>
-                        <td><a class="btn" href="{{route('home.post', $post->id)}}">View Post</a></td>
+                        <td><a class="btn" href="{{route('home.post', $post->slug)}}">View Post</a></td>
                         <td><a class="btn" href="{{route('posts.edit', $post->id)}}">Edit</a></td>
                         <td>
                             {!! Form::open(['method'=>'DELETE', 'route'=>['posts.destroy', $post->id]]) !!}
