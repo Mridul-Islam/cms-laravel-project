@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 02, 2022 at 08:27 AM
+-- Generation Time: Jan 04, 2022 at 06:52 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -186,11 +186,8 @@ CREATE TABLE `photos` (
 --
 
 INSERT INTO `photos` (`id`, `image`, `created_at`, `updated_at`) VALUES
-(1, '1641050591IMG_0332.JPG', '2022-01-01 09:23:11', '2022-01-01 09:23:11'),
-(3, '1641050789laravel.png', '2022-01-01 09:26:29', '2022-01-01 09:26:29'),
-(4, '1641050834react_logo.png', '2022-01-01 09:27:14', '2022-01-01 09:27:14'),
-(7, '1641105767asp-net-mvc-logo-.jpg', '2022-01-02 00:42:47', '2022-01-02 00:42:47'),
-(11, '1641107460react_logo.png', '2022-01-02 01:11:00', '2022-01-02 01:11:00');
+(25, '1641275218blue audi.jpg', '2022-01-03 23:46:58', '2022-01-03 23:46:58'),
+(27, '1641275513laravel.png', '2022-01-03 23:51:53', '2022-01-03 23:51:53');
 
 -- --------------------------------------------------------
 
@@ -215,7 +212,7 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `user_id`, `category_id`, `photo_id`, `title`, `body`, `slug`, `created_at`, `updated_at`) VALUES
-(2, 1, 2, 3, 'Laravel Development', 'Laravel is a PHP framework and it is very popular..', 'laravel-development', '2022-01-01 09:26:29', '2022-01-01 09:48:05');
+(2, 1, 2, 27, 'Laravel Development', 'Laravel is a PHP framework and it is very popular..', 'laravel-development', '2022-01-01 09:26:29', '2022-01-03 23:51:53');
 
 -- --------------------------------------------------------
 
@@ -264,7 +261,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `is_active`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `photo_id`) VALUES
-(1, 1, 'Mridul Islam', 'md.mridulislam12345@gmail.com', 1, NULL, '$2y$10$fzNV/ty/QlbLNvFz1mKc2uLN0C3GO9q01ROw1lxemyskpX/UkwOF2', NULL, '2022-01-01 09:20:22', '2022-01-01 09:23:11', '1');
+(1, 1, 'Mridul Islam', 'md.mridulislam12345@gmail.com', 1, NULL, '$2y$10$fzNV/ty/QlbLNvFz1mKc2uLN0C3GO9q01ROw1lxemyskpX/UkwOF2', NULL, '2022-01-01 09:20:22', '2022-01-03 23:46:58', '25');
 
 --
 -- Indexes for dumped tables
@@ -390,7 +387,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `photos`
 --
 ALTER TABLE `photos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `posts`

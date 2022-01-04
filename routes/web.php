@@ -49,6 +49,7 @@ Route::group(['middleware'=>'admin'], function (){
     Route::resource('/admin/categories', AdminCategoriesController::class);
 
     Route::resource('/admin/media', AdminMediaController::class);
+    Route::post('/delete/media', [AdminMediaController::class, 'mediaDelete'])->name('delete.media');
 
     Route::resource('/admin/comments', PostCommentsController::class);
 
