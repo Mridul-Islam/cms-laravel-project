@@ -45,6 +45,7 @@ Route::group(['middleware'=>'admin'], function (){
 
     Route::resource('/admin/posts', AdminPostsController::class);
     Route::get('/admin/post/{id}/comments', [AdminPostsController::class, 'comments'])->name('post.comments');
+    Route::post('/admin/delete/post', [AdminPostsController::class, 'deleteMultiplePost'])->name('delete.post');
 
     Route::resource('/admin/categories', AdminCategoriesController::class);
 

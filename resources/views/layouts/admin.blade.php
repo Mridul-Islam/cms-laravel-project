@@ -131,6 +131,21 @@
                     </li>
 
                     <li>
+                        <a href="#"><i class="fa fa-file-pdf-o fa-fw"></i> Posts<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="{{route('posts.index')}}">All Posts</a>
+                            </li>
+
+                            <li>
+                                <a href="{{route('posts.create')}}">Create Post</a>
+                            </li>
+
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+
+                    <li>
                         <a href="{{route('comments.index')}}"><i class="fa fa-comments fa-fw"></i>Comments<span class=""></span></a>
                     </li>
 
@@ -146,21 +161,6 @@
 {{--                                                        </li>--}}
 
 {{--                        </ul>--}}
-                        <!-- /.nav-second-level -->
-                    </li>
-
-                    <li>
-                        <a href="#"><i class="fa fa-file-pdf-o fa-fw"></i> Posts<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="{{route('posts.index')}}">All Posts</a>
-                            </li>
-
-                            <li>
-                                <a href="{{route('posts.create')}}">Create Post</a>
-                            </li>
-
-                        </ul>
                         <!-- /.nav-second-level -->
                     </li>
 
@@ -322,7 +322,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header"></h1>
+{{--                <h1 class="page-header"></h1>--}}
                 @yield('content')
             </div>
             <!-- /.col-lg-12 -->

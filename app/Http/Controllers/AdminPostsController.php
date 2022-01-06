@@ -92,10 +92,27 @@ class AdminPostsController extends Controller
         return redirect('admin/posts');
     }
 
+    public function deleteMultiplePost(Request $request){
+        $posts = Post::findOrFail($request->checkBoxArray);
+        foreach($posts as $post){
+            unlink(public_path() . $post->photo->image);
+            $post->photo()->delete();
+            $post->comments()->delete();
+            $post->delete();
+        }
+        Session::flash('deleted_posts', 'The posts has been deleted');
+        return redirect()->back();
+    }
+
+
+
+
+
     public function post($slug){
         $post = Post::findBySlugOrFail($slug);
         //$post = Post::findOrFail($id);
         $comments = $post->comments()->whereIsActive(1)->get();
+        //$replies = $comments->replies()->whereIsActive(1)->get();
         return view('post', compact('post', 'comments'));
     }
 
