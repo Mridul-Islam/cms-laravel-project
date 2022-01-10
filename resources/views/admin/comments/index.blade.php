@@ -44,13 +44,13 @@
                     <td>
                         @if($comment->is_active == 1)
                             {!! Form::open(['method'=>'PATCH', 'route'=>['comments.update', $comment->id]]) !!}
-                            <input type="hidden" name="is_active" value="0" />
-                            {!! Form::submit('Un-Approve', ['class'=>'btn btn-primary']) !!}
+                                <input type="hidden" name="is_active" value="0" />
+                                {!! Form::submit('Un-Approve', ['class'=>'btn btn-primary']) !!}
                             {!! Form::close() !!}
                         @else
                             {!! Form::open(['method'=>'PATCH', 'route'=>['comments.update', $comment->id]]) !!}
-                            <input type="hidden" name="is_active" value="1" />
-                            {!! Form::submit('Approve', ['class'=>'btn btn-primary']) !!}
+                                <input type="hidden" name="is_active" value="1" />
+                                {!! Form::submit('Approve', ['class'=>'btn btn-primary']) !!}
                             {!! Form::close() !!}
                         @endif
 
