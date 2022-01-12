@@ -7,7 +7,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+{{--    <title>{{ config('app.name', 'Laravel') }}</title>--}}
+    <title>CMS</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -28,6 +29,11 @@
 {{--                    {{ config('app.name', 'Laravel') }}--}}
                     Home
                 </a>
+                @if(Auth::check())
+                    <a class="navbar-brand" href="{{route('admin.index') }}">
+                        Admin
+                    </a>
+                @endif
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>

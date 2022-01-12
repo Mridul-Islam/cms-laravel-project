@@ -23,7 +23,7 @@ class Admin
             }
         }
         else{
-            return redirect('admin/users');
+            return redirect()->back();
         }
 
     }

@@ -35,22 +35,19 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{route('home')}}">Home</a>
+            <a class="navbar-brand" href="{{url('/')}}">Home</a>
+            @if(Auth::check())
+                <a class="navbar-brand" href="{{url('/admin')}}">Admin</a>
+            @endif
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li>
-                    <a href="{{route('admin.index')}}">Admin</a>
-                </li>
+{{--        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">--}}
+{{--            <ul class="nav navbar-nav">--}}
 {{--                <li>--}}
-{{--                    <a href="#">Services</a>--}}
+{{--                    <a href="{{route('admin.index')}}">Admin</a>--}}
 {{--                </li>--}}
-{{--                <li>--}}
-{{--                    <a href="#">Contact</a>--}}
-{{--                </li>--}}
-            </ul>
-        </div>
+{{--            </ul>--}}
+{{--        </div>--}}
         <!-- /.navbar-collapse -->
     </div>
     <!-- /.container -->

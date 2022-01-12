@@ -26,6 +26,8 @@ use Illuminate\Support\Facades\Route;
 //});
 Route::get('/', [HomeController::class, 'index']);
 
+Route::get('/category/{id}', [HomeController::class, 'categoryPosts'])->name('category.posts');
+
 
 Auth::routes();
 
@@ -33,12 +35,14 @@ Auth::routes();
 
 Route::get('/post/{id}', [AdminPostsController::class, 'post']) ->name('home.post');
 
+// Admin Dashboard route
+Route::get('/admin', function (){
+    return view('admin.index');
+})->name('admin.index');
+
+
 
 Route::group(['middleware'=>'admin'], function (){
-
-    Route::get('/admin', function (){
-        return view('admin.index');
-    })->name('admin.index');
 
     Route::resource('/admin/users', AdminUsersController::class , ['names'=>[
         'index' => 'admin.users.index'

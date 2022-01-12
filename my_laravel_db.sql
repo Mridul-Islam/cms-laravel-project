@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 04, 2022 at 06:52 AM
+-- Generation Time: Jan 12, 2022 at 11:09 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -64,6 +64,22 @@ CREATE TABLE `comments` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`id`, `post_id`, `is_active`, `author`, `email`, `photo`, `body`, `created_at`, `updated_at`) VALUES
+(11, 2, 1, 'Mridul Islam', 'md.mridulislam12345@gmail.com', '/images/1641462772Mridul.jpg', 'Third comment for laravel course.', '2022-01-06 04:22:08', '2022-01-06 04:22:54'),
+(12, 2, 1, 'Mridul Islam', 'md.mridulislam12345@gmail.com', '/images/1641462772Mridul.jpg', 'Fourth comment for laravel.', '2022-01-06 04:23:21', '2022-01-06 04:23:33'),
+(15, 9, 1, 'Mridul Islam', 'md.mridulislam12345@gmail.com', '/images/1641462772Mridul.jpg', 'First comment for rest API.', '2022-01-07 02:33:19', '2022-01-07 02:34:13'),
+(16, 9, 1, 'Mridul Islam', 'md.mridulislam12345@gmail.com', '/images/1641462772Mridul.jpg', 'Second comment for Rest Api.', '2022-01-07 02:33:31', '2022-01-07 02:34:15'),
+(17, 9, 1, 'Mridul Islam', 'md.mridulislam12345@gmail.com', '/images/1641462772Mridul.jpg', 'Third comment for rest APi.', '2022-01-07 02:33:52', '2022-01-07 02:34:17'),
+(18, 9, 1, 'Mridul Islam', 'md.mridulislam12345@gmail.com', '/images/1641462772Mridul.jpg', 'Fourth comment for rest API.', '2022-01-07 02:34:04', '2022-01-07 02:34:20'),
+(19, 11, 1, 'Mridul Islam', 'md.mridulislam12345@gmail.com', '/images/1641462772Mridul.jpg', 'First comment for vue.js', '2022-01-07 02:35:20', '2022-01-07 02:36:08'),
+(20, 11, 1, 'Mridul Islam', 'md.mridulislam12345@gmail.com', '/images/1641462772Mridul.jpg', 'Second comment for vue.js', '2022-01-07 02:35:40', '2022-01-07 02:36:09'),
+(21, 11, 1, 'Mridul Islam', 'md.mridulislam12345@gmail.com', '/images/1641462772Mridul.jpg', 'Third comment for vue.js', '2022-01-07 02:35:52', '2022-01-07 02:36:12'),
+(22, 11, 1, 'Mridul Islam', 'md.mridulislam12345@gmail.com', '/images/1641462772Mridul.jpg', 'Fourth comment for vue.js', '2022-01-07 02:36:03', '2022-01-07 02:36:13');
+
 -- --------------------------------------------------------
 
 --
@@ -81,17 +97,6 @@ CREATE TABLE `comment_replies` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `comment_replies`
---
-
-INSERT INTO `comment_replies` (`id`, `comment_id`, `is_active`, `author`, `email`, `photo`, `body`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 'Mridul Islam', 'md.mridulislam12345@gmail.com', '/images/1641050591IMG_0332.JPG', 'First reply for first comment to PHP Beginner Course.', '2022-01-01 09:30:49', '2022-01-01 09:31:27'),
-(2, 1, 1, 'Mridul Islam', 'md.mridulislam12345@gmail.com', '/images/1641050591IMG_0332.JPG', 'Second reply for first comment to PHP Beginner Course.', '2022-01-01 09:31:05', '2022-01-01 09:31:48'),
-(3, 1, 1, 'Mridul Islam', 'md.mridulislam12345@gmail.com', '/images/1641050591IMG_0332.JPG', 'Third reply for first comment to PHP Beginner Course.', '2022-01-01 09:31:16', '2022-01-01 09:31:49'),
-(6, 7, 1, 'Mridul Islam', 'md.mridulislam12345@gmail.com', '/images/1641050591IMG_0332.JPG', 'replies for first comment of react.', '2022-01-02 01:13:23', '2022-01-02 01:13:37'),
-(7, 8, 1, 'Mridul Islam', 'md.mridulislam12345@gmail.com', '/images/1641050591IMG_0332.JPG', 'Replies for react 22', '2022-01-02 01:14:51', '2022-01-02 01:15:04');
 
 -- --------------------------------------------------------
 
@@ -187,7 +192,13 @@ CREATE TABLE `photos` (
 
 INSERT INTO `photos` (`id`, `image`, `created_at`, `updated_at`) VALUES
 (25, '1641275218blue audi.jpg', '2022-01-03 23:46:58', '2022-01-03 23:46:58'),
-(27, '1641275513laravel.png', '2022-01-03 23:51:53', '2022-01-03 23:51:53');
+(27, '1641275513laravel.png', '2022-01-03 23:51:53', '2022-01-03 23:51:53'),
+(28, '1641462703IMG_1828.JPG', '2022-01-06 03:51:43', '2022-01-06 03:51:43'),
+(29, '1641462772Mridul.jpg', '2022-01-06 03:52:52', '2022-01-06 03:52:52'),
+(30, '1641462875blue rolls-royce.webp', '2022-01-06 03:54:35', '2022-01-06 03:54:35'),
+(34, '1641463665Laravel Api.jpg', '2022-01-06 04:07:45', '2022-01-06 04:07:45'),
+(36, '1641463987vue.js-logo.png', '2022-01-06 04:13:07', '2022-01-06 04:13:07'),
+(41, '1641491082black rolls-royce.jpg', '2022-01-06 11:44:42', '2022-01-06 11:44:42');
 
 -- --------------------------------------------------------
 
@@ -212,7 +223,9 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `user_id`, `category_id`, `photo_id`, `title`, `body`, `slug`, `created_at`, `updated_at`) VALUES
-(2, 1, 2, 27, 'Laravel Development', 'Laravel is a PHP framework and it is very popular..', 'laravel-development', '2022-01-01 09:26:29', '2022-01-03 23:51:53');
+(2, 1, 2, 27, 'Laravel Development', 'Laravel is a PHP framework and it is very popular..', 'laravel-development', '2022-01-01 09:26:29', '2022-01-03 23:51:53'),
+(9, 1, 2, 34, 'Rest Api with Laravel', 'This is another awesome course by Edwin Diaz. This is very helpful about Laravel Api.', 'rest-api-with-laravel', '2022-01-06 04:07:45', '2022-01-06 04:58:29'),
+(11, 1, 3, 36, 'Vue.js course', 'I am new at this vue.js course.', 'vue-js-course', '2022-01-06 04:13:08', '2022-01-06 04:13:08');
 
 -- --------------------------------------------------------
 
@@ -261,7 +274,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `is_active`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `photo_id`) VALUES
-(1, 1, 'Mridul Islam', 'md.mridulislam12345@gmail.com', 1, NULL, '$2y$10$fzNV/ty/QlbLNvFz1mKc2uLN0C3GO9q01ROw1lxemyskpX/UkwOF2', NULL, '2022-01-01 09:20:22', '2022-01-03 23:46:58', '25');
+(1, 1, 'Mridul Islam', 'md.mridulislam12345@gmail.com', 1, NULL, '$2y$10$fzNV/ty/QlbLNvFz1mKc2uLN0C3GO9q01ROw1lxemyskpX/UkwOF2', NULL, '2022-01-01 09:20:22', '2022-01-06 03:52:52', '29'),
+(6, 2, 'Shad', 'shad@gmail.com', 1, NULL, '$2y$10$KTC6ptHFRykpoxGL7oTGHOW8QprSHZFLrJLuny//KzGu.FOXlchS6', NULL, '2022-01-06 03:51:43', '2022-01-06 03:51:43', '28'),
+(7, 3, 'Shamim Hossain', 'shamimMridha@gmail.com', 1, NULL, '$2y$10$2HgDRWnuqahAhPkND7.3/.Ff3vD6CFZUm4FSg/4IjHq03rz5wz8uC', NULL, '2022-01-06 03:54:36', '2022-01-06 03:54:36', '30'),
+(8, 2, 'Shakil Ahmed', 'Shakil@gmail.com', 1, NULL, '$2y$10$ggcWT8hG2xRF1X4bu1JMTu2s7PapIYajuzCTQwOTP4fh4Y9q4SD6i', NULL, '2022-01-06 03:55:11', '2022-01-06 11:44:42', '41'),
+(9, NULL, 'Shakil Ahmed', 'ShakilAhmed@gmail.com', 0, NULL, '$2y$10$oZDo/tF1rptGeKNQYEL79.kbK7.YN9/1yjHSAihGO0bmAD.3tUq.W', NULL, '2022-01-12 04:06:41', '2022-01-12 04:06:41', NULL);
 
 --
 -- Indexes for dumped tables
@@ -357,13 +374,13 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `comment_replies`
 --
 ALTER TABLE `comment_replies`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -387,13 +404,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `photos`
 --
 ALTER TABLE `photos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -405,7 +422,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

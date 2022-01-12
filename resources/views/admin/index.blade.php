@@ -1,6 +1,10 @@
 @extends('layouts.admin')
 
 @section('content')
-    <h1>Admin</h1>
+    <div class="text-center bg-success">
+        <h2>
+            {{Auth::user()->role->name}}
+        </h2>
+    </div>
 
 @stop

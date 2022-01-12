@@ -19,7 +19,7 @@
                         @foreach($posts as $post)
                             <div class="card" style="margin-bottom: 50px">
                                 <div class="card-body">
-                                    <h3 class="card-title text-center"><a href="#">{{$post->title}}</a></h3>
+                                    <h3 class="card-title text-center"><a href="{{route('home.post', $post->slug)}}">{{$post->title}}</a></h3>
                                     <p class="card-text text-center">{{$post->body}}</p>
                                     <p class="card-text text-center"><small class="text-muted">Last updated {{$post->updated_at->diffForHumans()}}</small></p>
                                 </div>
@@ -31,6 +31,10 @@
                                 <hr/>
                             </div>
                         @endforeach
+
+{{--                        <div>--}}
+{{--                            {{$posts->links()}}--}}
+{{--                        </div>--}}
 
                     </div>
 
@@ -44,7 +48,7 @@
                             </div>
                             <ul class="list-group list-group-flush">
                                 @foreach($categories as $category)
-                                    <li class="list-group-item"><a href="#">{{$category->name}}</a></li>
+                                    <li class="list-group-item"><a href="{{route('category.posts', $category->id)}}">{{$category->name}}</a></li>
                                 @endforeach
                             </ul>
                         </div>
