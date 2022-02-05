@@ -39,15 +39,15 @@
                     <th><input type="checkbox" id="options" /></th>
                     <th>Id</th>
                     <th>Image</th>
-                    <th>User</th>
-                    <th>Category</th>
+                    <th>Owner</th>
                     <th>Title</th>
-                    <th>Body</th>
+                    <th>Category</th>
+{{--                    <th>Body</th>--}}
+                    <th>Comments</th>
+                    <th>Post link</th>
                     <th>Created</th>
                     <th>Updated</th>
-                    <th>Comments</th>
-                    <th>View Post</th>
-                    <th>Edit</th>
+{{--                    <th>Edit</th>--}}
 {{--                    <th>Delete</th>--}}
                 </tr>
                 </thead>
@@ -60,14 +60,14 @@
                             <td>{{$post->id}}</td>
                             <td><img height="80px" width="140px" src="{{$post->photo? $post->photo->image: "/images/post.jpg"}}" /></td>
                             <td>{{$post->user->name}}</td>
+                            <td><a class="btn" href="{{route('posts.edit', $post->id)}}">{{Str::limit($post->title, 20)}}</a></td>
                             <td>{{$post->category ? $post->category->name : 'Un-Categorised'}}</td>
-                            <td>{{Str::limit($post->title, 20)}}</td>
-                            <td>{{Str::limit($post->body, 30)}}</td>
-                            <td>{{$post->created_at->diffForHumans()}}</td>
-                            <td>{{$post->updated_at->diffForHumans()}}</td>
+{{--                            <td>{{Str::limit($post->body, 30)}}</td>--}}
                             <td><a class="btn" href="{{route('post.comments', $post->id)}}">Comments</a></td>
                             <td><a class="btn" href="{{route('home.post', $post->slug)}}">View Post</a></td>
-                            <td><a class="btn" href="{{route('posts.edit', $post->id)}}">Edit</a></td>
+                            <td>{{$post->created_at->diffForHumans()}}</td>
+                            <td>{{$post->updated_at->diffForHumans()}}</td>
+{{--                            <td><a class="btn" href="{{route('posts.edit', $post->id)}}">Edit</a></td>--}}
 {{--                            <td>--}}
 {{--                                {!! Form::open(['method'=>'DELETE', 'route'=>['posts.destroy', $post->id]]) !!}--}}
 {{--                                {!! Form::submit('Delete', ['class'=>'btn btn-danger']) !!}--}}
