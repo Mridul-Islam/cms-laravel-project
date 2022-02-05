@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Post</title>
+    <title>Blogging System - Post</title>
 
     <link href="{{asset('css/libs.css')}}" rel="stylesheet">
 

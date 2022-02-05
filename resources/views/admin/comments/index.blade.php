@@ -34,7 +34,7 @@
             @foreach($comments as $comment)
                 <tr>
                     <td>{{$comment->id}}</td>
-                    <td>{{$comment->post->id}}</td>
+                    <td>{{$comment->post_id? $comment->post->id : 'Post not Available'}}</td>
 {{--                                        <td>{{$comment->photo ? $comment->photo : ""}}</td>--}}
                     <td>{{$comment->author}}</td>
                     <td>{{$comment->email}}</td>

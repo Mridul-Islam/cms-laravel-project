@@ -61,8 +61,8 @@
                             <td><img height="80px" width="140px" src="{{$post->photo? $post->photo->image: "/images/post.jpg"}}" /></td>
                             <td>{{$post->user->name}}</td>
                             <td>{{$post->category ? $post->category->name : 'Un-Categorised'}}</td>
-                            <td>{{Str::limit($post->title, 25)}}</td>
-                            <td>{{Str::limit($post->body, 35)}}</td>
+                            <td>{{Str::limit($post->title, 20)}}</td>
+                            <td>{{Str::limit($post->body, 30)}}</td>
                             <td>{{$post->created_at->diffForHumans()}}</td>
                             <td>{{$post->updated_at->diffForHumans()}}</td>
                             <td><a class="btn" href="{{route('post.comments', $post->id)}}">Comments</a></td>
