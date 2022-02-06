@@ -3,46 +3,41 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-
-
-
-
             <div class="container">
-
                 <div class="row">
-
                     <!-- Blog Entries Column -->
                     <div class="col-md-8">
+                        <!-- Blog Posts -->
+                        <div class="">
+                            @foreach($posts as $post)
+                                <h2>
+                                    <a href="{{route('home.post', $post->slug)}}">{{ $post->title }}</a>
+                                </h2>
+                                <p class="lead">
+                                    by <b>{{ $post->user->name }}</b>
+                                </p>
+                                <p><span class="glyphicon glyphicon-time"></span> Posted on {{ $post->created_at->diffForHumans() }}</p>
+                                <hr>
+                                <img class="img-responsive" src="{{ $post->photo_id? $post->photo->image: "/images/post.jpg" }}" alt="">
+                                <hr>
+                                <p>{{ Str::limit($post->body, 300) }}</p>
+                                <a class="btn btn-primary" href="{{route('home.post', $post->slug)}}">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+                                <hr><hr>
+                            @endforeach
+                        </div>
 
-{{--                        All post --}}
-
-                        @foreach($posts as $post)
-                            <div class="card" style="margin-bottom: 50px">
-                                <div class="card-body">
-                                    <h3 class="card-title text-center"><a href="{{route('home.post', $post->slug)}}">{{$post->title}}</a></h3>
-                                    <p class="card-text text-center">{{$post->body}}</p>
-                                    <p class="card-text text-center"><small class="text-muted">Last updated {{$post->updated_at->diffForHumans()}}</small></p>
-                                </div>
-                                <img width="500px" height="220px" class="card-img-bottom" src="{{$post->photo->image}}" alt="Card image cap">
-                                <hr/>
-                                <div class="card-subtitle text-center">
-                                    Posted By<a href="#"> {{$post->user->name}}</a>
-                                </div>
-                                <hr/>
+                        <!-- Pager -->
+                        <div class="row">
+                            <div class="col-sm-6 col-sm-offset-5">
+                                {{ $posts->links() }}
                             </div>
-                        @endforeach
-
-{{--                        <div>--}}
-{{--                            {{$posts->links()}}--}}
-{{--                        </div>--}}
+                        </div>
 
                     </div>
 
-
-                    <!-- Blog Sidebar Widgets Column -->
-                    <div class="col-md-3 ml-5">
-{{--                        Blog Categories --}}
-                        <div class="card" style="width: 18rem;">
+                    <!-- Blog Sidebar -->
+                    <div class="col-md-3 ml-auto">
+                        <div class="card" style="">
                             <div class="card-header">
                                 <h4>Blog Categories</h4>
                             </div>
@@ -52,8 +47,6 @@
                                 @endforeach
                             </ul>
                         </div>
-
-
                     </div>
 
                 </div>
@@ -74,13 +67,6 @@
 
             </div>
             <!-- /.container -->
-
-
-
-
-
-
-
         </div>
     </div>
 

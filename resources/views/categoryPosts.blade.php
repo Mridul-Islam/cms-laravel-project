@@ -21,7 +21,7 @@
                                         <p class="card-text text-center">{{$post->body}}</p>
                                         <p class="card-text text-center"><small class="text-muted">Last updated {{$post->updated_at->diffForHumans()}}</small></p>
                                     </div>
-                                    <img width="500px" height="220px" class="card-img-bottom" src="{{$post->photo->image}}" alt="Card image cap">
+                                    <img width="500px" height="220px" class="card-img-bottom" src="{{$post->photo_id ? $post->photo->image : "/images/post.jpg"}}" alt="Card image cap">
                                     <hr/>
                                     <div class="card-subtitle text-center">
                                         Posted By<a href="#"> {{$post->user->name}}</a>

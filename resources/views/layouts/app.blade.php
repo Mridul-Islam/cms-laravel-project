@@ -19,8 +19,14 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{asset('css/libs.css')}}" rel="stylesheet">
+
+    <!-- Scripts -->
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 </head>
-<body style="background-color: #E3F2FD">
+{{--background-color: #E3F2FD;--}}
+<body style="padding-top: 0;">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark bg-secondary shadow-sm">
             <div class="container">
@@ -40,12 +46,12 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+{{--                    <ul class="navbar-nav mr-auto">--}}
 
-                    </ul>
+{{--                    </ul>--}}
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto float-right">
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
@@ -87,5 +93,10 @@
             @yield('content')
         </main>
     </div>
+
+    <!-- jQuery -->
+    <script src="{{asset('js/libs.js')}}"></script>
+
+    @yield('scripts')
 </body>
 </html>
