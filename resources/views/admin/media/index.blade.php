@@ -58,7 +58,7 @@
         </div>
 
         @else
-
+        <h1 class="text-center text-info bg-info">No Photo Available</h1>
     @endif
 
 @stop

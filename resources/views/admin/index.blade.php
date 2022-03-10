@@ -1,9 +1,10 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="text-center bg-success">
+    <div class="text-center bg-success text-info">
         <h2>
-            {{Auth::user()->role_id? Auth::user()->role->name : 'Role is not set yet.'}}
+            {{Auth::user()->role_id? Auth::user()->role->name : 'Role is not set yet'}}
+{{--            {{ Auth::user()->is_active == 0? 'Your current status is in-active.': " " }}--}}
         </h2>
     </div>
 

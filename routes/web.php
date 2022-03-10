@@ -32,12 +32,13 @@ Route::get('/category/{id}', [HomeController::class, 'categoryPosts'])->name('ca
 // Show single post route
 Route::get('/post/{id}', [AdminPostsController::class, 'post']) ->name('home.post');
 
+// Admin Dashboard route
+Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+
 Auth::routes();
 
 Route::group(['middleware'=>'admin'], function (){
 
-    // Admin Dashboard route
-    Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
 
     // Admin users route
     Route::resource('/admin/users', AdminUsersController::class , ['names'=>[

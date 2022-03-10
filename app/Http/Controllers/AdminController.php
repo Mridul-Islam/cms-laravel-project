@@ -18,7 +18,7 @@ class AdminController extends Controller
         $postsCount          = Post::count();
         $categoriesCount     = Category::count();
         $photosCount         = Photo::count();
-        $commentsCount        = Comment::count();
+        $commentsCount       = Comment::count();
         $commentRepliesCount = CommentReply::count();
 
         return view('admin.index', compact('usersCount', 'postsCount', 'categoriesCount',
