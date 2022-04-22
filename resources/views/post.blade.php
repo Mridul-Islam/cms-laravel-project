@@ -9,6 +9,7 @@
                 <p class="bg-success text-center">{{session('created_comment')}}</p>
             @endif
             <!-- Blog Posts -->
+            @if($post)
             <div class="">
                 <h2>
                     <b>{{ $post->title }}</b>
@@ -18,11 +19,12 @@
                 </p>
                 <p><span class="glyphicon glyphicon-time"></span> Posted on {{ $post->created_at->diffForHumans() }}</p>
                 <hr>
-                <img class="img-responsive" src="{{ $post->photo_id? $post->photo->image: "/images/post.jpg" }}" alt="">
+                <img width="300px" class="img-responsive" src="{{ $post->photo_id? "../images/" . $post->photo->image: "../images/post.jpg" }}" alt="">
                 <hr>
                 <p>{{ $post->body }}</p>
                 <hr>
             </div>
+            @endif
             <!-- End of blog entries column -->
 
             <!-- Blog Comment Section -->
@@ -56,7 +58,7 @@
                     <div class="media" style="margin-bottom: 70px; ">
                         <a class="pull-left" href="#">
 {{--                                            <img width="80px" height="50px" class="media-object" src="{{Auth::user()->gravatar}}" alt="">--}}
-                            <img width="80px" height="50px" class="media-object" src="{{$comment->photo? $comment->photo: "/images/user-logo.jpg"}}" alt="">
+                            <img width="80px" height="50px" class="media-object" src="{{$comment->photo? "../images/" . $comment->photo: "../images/user-logo.jpg"}}" alt="">
                         </a>
                         <div class="media-body">
                             <h4 class="media-heading">{{$comment->author}}

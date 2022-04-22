@@ -23,9 +23,9 @@ class DatabaseSeeder extends Seeder
 //        $this->call(CategoriesTableSeeder::class);
 
         User::Factory()->count(5)->create();
-        Post::Factory()->count(10)->create();
-        Category::Factory()->create();
-        Photo::Factory()->create();
+        Post::Factory()->count(20)->create();
+        Category::Factory()->count(5)->create();
+        //Photo::Factory()->create();
         Role::Factory()->create();
 
     }

@@ -15,7 +15,7 @@
                     </p>
                     <p><span class="glyphicon glyphicon-time"></span> Posted on {{ $post->created_at->diffForHumans() }}</p>
                     <hr>
-                    <img class="img-responsive" src="{{ $post->photo_id? $post->photo->image: "/images/post.jpg" }}" alt="">
+                    <img class="img-responsive" src="{{$post->photo_id? "images/" . $post->photo->image: "images/post.jpg" }}" alt="" width="300px">
                     <hr>
                     <p>{{ Str::limit($post->body, 300) }}</p>
                     <a class="btn btn-primary" href="{{route('home.post', $post->slug)}}">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>

@@ -56,9 +56,9 @@
                             <a href="{{route('media.index')}}">All Photos</a>
                         </li>
 
-                        <li>
-                            <a href="{{route('media.create')}}">Upload Photo</a>
-                        </li>
+{{--                        <li>--}}
+{{--                            <a href="{{route('media.create')}}">Upload Photo</a>--}}
+{{--                        </li>--}}
 
                     </ul>
                     <!-- /.nav-second-level -->

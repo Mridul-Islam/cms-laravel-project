@@ -34,7 +34,7 @@
             @foreach($users as $user)
                 <tr>
                     <td>{{$user->id}}</td>
-                    <td><img height="80px" width="130px" src="{{$user->photo? $user->photo->image: "/images/user-logo.jpg"}}" alt="" /></td>
+                    <td><img height="80px" width="110px" src="{{$user->photo_id? "../images/" . $user->photo->image: "../images/user-logo.jpg"}}" alt="" /></td>
                     <td><a href="{{route('users.edit', $user->id)}}"> {{$user->name}}</a></td>
                     <td>{{$user->email}}</td>
                     <td>{{$user->role_id? $user->role->name: 'Not Set'}}</td>

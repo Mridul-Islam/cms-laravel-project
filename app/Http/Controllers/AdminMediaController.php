@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Session;
 class AdminMediaController extends Controller
 {
     public  function index(){
-        $photos = Photo::paginate(4);
+        $photos = Photo::paginate(15);
         return view('admin.media.index', compact('photos'));
     }
 

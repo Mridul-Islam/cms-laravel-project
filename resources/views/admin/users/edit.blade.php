@@ -5,7 +5,7 @@
 
     <div class="row">
         <div class="col-sm-3">
-            <img src="{{$user->photo ? $user->photo->image : "/images/user-logo.jpg"}}" class="img-responsive img-rounded img-thumbnail">
+            <img src="{{$user->photo_id ? "../../../images/" . $user->photo->image : "../../../images/user-logo.jpg"}}" class="img-responsive img-rounded img-thumbnail">
         </div>
 
 

@@ -58,7 +58,7 @@
                         <tr>
                             <td><input type="checkbox" name="checkBoxArray[]" class="checkBoxes" value="{{$post->id}}" /></td>
                             <td>{{$post->id}}</td>
-                            <td><img height="80px" width="140px" src="{{$post->photo? $post->photo->image: "/images/post.jpg"}}" /></td>
+                            <td><img height="80px" width="140px" src="{{$post->photo_id? "../images/" . $post->photo->image: "../images/post.jpg"}}" /></td>
                             <td>{{$post->user->name}}</td>
                             <td><a class="btn" href="{{route('posts.edit', $post->id)}}">{{Str::limit($post->title, 20)}}</a></td>
                             <td>{{$post->category ? $post->category->name : 'Un-Categorised'}}</td>

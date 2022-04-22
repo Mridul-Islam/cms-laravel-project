@@ -33,6 +33,7 @@
                     <th><input type="checkbox" id="options" /></th>
                     <th>Id</th>
                     <th>Photo</th>
+                    <th>File Name</th>
                     <th>Created At</th>
                 </tr>
                 </thead>
@@ -42,7 +43,8 @@
                         <tr>
                             <td><input class="checkBoxes" type="checkbox" name="checkBoxArray[]" value="{{$photo->id}}" ></td>
                             <td>{{$photo->id}}</td>
-                            <td><img width="150px" height="80px" src="{{$photo->image}}" /></td>
+                            <td><img width="150px" height="100px" src="../images/{{$photo->image}}" /></td>
+                            <td>{{ $photo->image }}</td>
                             <td>{{$photo->created_at->diffForHumans()}}</td>
                         </tr>
                     @endforeach

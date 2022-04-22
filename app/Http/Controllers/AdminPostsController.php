@@ -16,7 +16,7 @@ class AdminPostsController extends Controller
 
     public function index()
     {
-        $posts = Post::paginate(5);
+        $posts = Post::orderBy('id', 'desc')->paginate(15);
 
         return view('admin.posts.index', compact('posts'));
     }
@@ -66,6 +66,10 @@ class AdminPostsController extends Controller
     {
         $post = Post::findOrFail($id);
         $input = $request->all();
+        if($post->photo_id){
+            unlink(public_path() . "/images/" . $post->photo->image);
+            $post->photo->delete();
+        }
 
         if($file = $request->file('photo_id')){
             $name = time() . $file->getClientOriginalName();
@@ -85,8 +89,13 @@ class AdminPostsController extends Controller
         $post = Post::findOrFail($id);
 
         $post->comments()->delete();
-        unlink(public_path() . $post->photo->image);
-        Photo::findOrFail($post->photo->id)->delete();
+        if($post->photo_id){
+            unlink(public_path() . "/images/" . $post->photo->image);
+            Photo::findOrFail($post->photo->id)->delete();
+        }
+        if($post->comments){
+            $post->comments()->delete();
+        }
         $post->delete();
         Session::flash('deleted_post', 'The post has been deleted');
         return redirect('admin/posts');
@@ -95,9 +104,13 @@ class AdminPostsController extends Controller
     public function deleteMultiplePost(Request $request){
         $posts = Post::findOrFail($request->checkBoxArray);
         foreach($posts as $post){
-            unlink(public_path() . $post->photo->image);
-            $post->photo()->delete();
-            $post->comments()->delete();
+            if($post->photo_id){
+                unlink(public_path() . "/images/" . $post->photo->image);
+                $post->photo()->delete();
+            }
+            if($post->comments){
+                $post->comments()->delete();
+            }
             $post->delete();
         }
         Session::flash('deleted_posts', 'The posts has been deleted');

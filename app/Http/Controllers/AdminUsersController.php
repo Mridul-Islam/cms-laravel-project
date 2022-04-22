@@ -16,7 +16,7 @@ class AdminUsersController extends Controller
 
     public function index()
     {
-        $users = User::paginate(5);
+        $users = User::orderBy('id', 'desc')->paginate(10);
         return view('admin.users.index', compact('users'));
     }
 
@@ -73,7 +73,10 @@ class AdminUsersController extends Controller
             $input = $request->all();
             $input['password'] = bcrypt($request->password);
         }
-
+        if($user->photo_id){
+            unlink(public_path() . "/images/" . $user->photo->image);
+            $user->photo->delete();
+        }
         if($file = $request->file('photo_id')){
             $name = time() . $file->getClientOriginalName();
             $file->move('images', $name);
@@ -95,9 +98,8 @@ class AdminUsersController extends Controller
 
         $user->posts()->delete();
         if($user->photo_id){
-            $photo = Photo::findOrFail($user->photo->id);
-            $photo->delete();
-            unlink(public_path() . $user->photo->image);
+            unlink(public_path() . "/images/" . $user->photo->image);
+            $user->photo->delete();
         }
 
         $user->delete();

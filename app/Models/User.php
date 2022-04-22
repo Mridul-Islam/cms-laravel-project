@@ -12,31 +12,19 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var string[]
-     */
+
     protected $fillable = ['name', 'email', 'password', 'role_id', 'is_active', 'photo_id'];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array
-     */
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array
-     */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public $image_path = 'images';
 
 
     public function role(){
@@ -44,7 +32,7 @@ class User extends Authenticatable
     }
 
     public function photo(){
-        return $this->belongsTo('App\Models\Photo');
+        return $this->belongsTo(Photo::class);
     }
 
     public function isAdmin(){
@@ -62,10 +50,14 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Post');
     }
 
-    public function getGravatarAttribute(){
-        $hash = md5(strtolower(trim($this->attributes['email']))) . "?d=mm&s=50";
-        return "https://www.gravatar.com/avatar/$hash";
-    }
+//    public function getGravatarAttribute(){
+//        $hash = md5(strtolower(trim($this->attributes['email']))) . "?d=mm&s=50";
+//        return "https://www.gravatar.com/avatar/$hash";
+//    }
+
+//    public function getImageAttribute($image){
+//        return $this->image_path . $image;
+//    }
 
 
 

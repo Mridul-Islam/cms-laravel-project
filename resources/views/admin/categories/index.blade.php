@@ -48,6 +48,12 @@
             @else
                 <h1 class="text-center">No Categories Available</h1>
         @endif
+
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-5">
+                    {{$categories->links()}}
+                </div>
+            </div>
     </div>
 
 
